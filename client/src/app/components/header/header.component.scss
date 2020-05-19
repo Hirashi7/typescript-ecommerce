@@ -1,0 +1,15 @@
+@import '../../../scss/variables';
+
+.navbar {
+    background: $violet;
+    color: $white;
+    font-size: 18px;
+    a {
+        color: inherit;
+    }
+}
+.navbar-brand {
+    img {
+        max-height: 55px;
+    }
+}

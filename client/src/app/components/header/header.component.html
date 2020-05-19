@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-lg-between">
+                <a class="navbar-brand" routerLink="/"><img src="/assets/logo.png" alt="Logo"></a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navCollapse" aria-controls="navCollapse"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navCollapse">
+                    <ul ngbNav #nav="ngbNav" class="navbar-nav">
+                        <li ngbNavItem>
+                          <a ngbNavLink routerLink="/products">Produkty</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
