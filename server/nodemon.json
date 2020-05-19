@@ -9,5 +9,8 @@
         "src"
     ],
     "exec": "npm start",
-    "ext": "ts"
+    "ext": "ts",
+    "env": {
+        "MONGO_ATLAS_PASSWORD": "z3erhqmz6otuxHlE"
+    }
 }
