@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 });
 
 /* ================= File handling ================= */
-app.use('/uploads', express.static('uploads'));
+//app.use('/uploads', express.static('uploads'));
 
 
 /* ================= JSON Parser ================= */
