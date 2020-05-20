@@ -1,7 +1,9 @@
 @import '../../../scss/variables';
 
-.navbar {
+header {
     background: $violet;
+}
+.navbar {
     color: $white;
     font-size: 18px;
     a {
