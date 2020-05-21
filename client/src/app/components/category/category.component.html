@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+       <div class="col-4" *ngFor="let product of products">
+          <div class="card">
+            <div class="card-body">
+             {{product._id}}
+              <h3>{{product.title}}</h3>
+              <h5>{{product.price}} zł</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+ </div>

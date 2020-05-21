@@ -8,8 +8,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class ProductService {
 
-  
-
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -17,19 +15,12 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<[{}]> {
-    console.log(this.http);
     return this.http.get<[{}]>('http://localhost:3000/api/products')
       .pipe(
         catchError(this.handleError<[{}]>('getProducts', [{}]))
       );
   }
 
-  /**
- * Handle Http operation that failed.
- * Let the app continue.
- * @param operation - name of the operation that failed
- * @param result - optional value to return as the observable result
- */
 private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 

@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    HeaderComponent
+    HeaderComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
