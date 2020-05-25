@@ -5,7 +5,7 @@ header {
 }
 .navbar {
     color: $white;
-    font-size: 18px;
+    font-size: 16px;
     a {
         color: inherit;
     }
@@ -13,5 +13,30 @@ header {
 .navbar-brand {
     img {
         max-height: 55px;
+    }
+}
+
+.shop-nav {
+    margin-left: 30px;
+    .nav-link {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        .badge {
+            position: absolute;
+            right: 3px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            font-size: 11px;
+        }
+    }
+    .nav-name {
+        font-size: 13px;
+    }
+
+    .ng-fa-icon {
+        font-size: 26px;
     }
 }

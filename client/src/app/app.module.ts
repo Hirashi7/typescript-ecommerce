@@ -10,19 +10,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CategoryComponent } from './components/category/category.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CategoryHeaderComponent } from './components/category/category-header/category-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     HeaderComponent,
-    CategoryComponent
+    CategoryComponent,
+    TopBarComponent,
+    CategoryHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

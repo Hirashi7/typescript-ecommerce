@@ -1,0 +1,12 @@
+@import '../../../scss/variables';
+
+.top-bar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    background-color: $danger;
+    color: $white;
+}
+.timer {
+    font-size: 1.1rem;
+}

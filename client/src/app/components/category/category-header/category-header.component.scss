@@ -1,0 +1,7 @@
+@import '../../../../scss/variables';
+.category-header {
+    background: lighten($violet, 5%);
+    color: $white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
