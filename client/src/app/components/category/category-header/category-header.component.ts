@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import Category from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-category-header',
@@ -9,7 +10,10 @@ export class CategoryHeaderComponent implements OnInit {
 
   constructor() { }
 
+  @Input() category: Category;
+
   ngOnInit(): void {
+
   }
 
 }

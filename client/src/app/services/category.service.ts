@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import Category from '../models/category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,20 @@ export class CategoryService {
     return this.http.get<[{}]>('http://localhost:3000/api/category/' + id)
       .pipe(
         catchError(this.handleError<[{}]>('getProductsByCategoryId', [{}]))
+      );
+  }
+
+  public getAll(): Observable<[Category] | [{}]> {
+    return this.http.get<[Category]>('http://localhost:3000/api/category/')
+      .pipe(
+        catchError(this.handleError<[{}]>('getAll', [{}]))
+      );
+  }
+
+  public getById(id: string): Observable<Category | {}> {
+    return this.http.get<Category>('http://localhost:3000/api/category/' + id)
+      .pipe(
+        catchError(this.handleError<{}>('getById', {}))
       );
   }
 

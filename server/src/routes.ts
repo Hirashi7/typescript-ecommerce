@@ -8,6 +8,10 @@ const productCtrl = new ProductController();
 const categoryCtrl = new CategoryController();
 
 router.get('/products', productCtrl.getAll);
-router.get('/category/:id', categoryCtrl.getProductsByCategoryId);
+router.get('/category/:id', categoryCtrl.getById);
+router.get('/category/children/:id', categoryCtrl.getChildren);
+router.get('/category', categoryCtrl.getAll);
+router.post('/category', categoryCtrl.create);
+router.patch('/category/:id', categoryCtrl.updateById);
 
 export default router;

@@ -14,7 +14,8 @@ mongoose.connect(
     'mongodb+srv://typeshopdb:' + process.env.DB_PASSWORD + '@typeshop-5u9aw.mongodb.net/test?retryWrites=true&w=majority',
     { 
         useUnifiedTopology: true,
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useFindAndModify: true
     }
 );
 

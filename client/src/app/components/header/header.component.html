@@ -10,27 +10,8 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navCollapse">
           <ul ngbNav #nav="ngbNav" class="navbar-nav">
-            <li class="nav-item" ngbDropdown>
-              <a class="nav-link" style="cursor: pointer" ngbDropdownToggle role="button">
-                Prestashop
-              </a>
-              <div ngbDropdownMenu class="dropdown-menu">
-                <a ngbDropdownItem [routerLink]="['/category', '5ec58a27690b831954245b0a']">Kategoria</a>
-              </div>
-            </li>
-            <li class="nav-item" ngbDropdown>
-              <a class="nav-link" style="cursor: pointer" ngbDropdownToggle role="button">
-                WooCommerce
-              </a>
-              <div ngbDropdownMenu class="dropdown-menu">
-                <a ngbDropdownItem routerLink="/products">Produkty</a>
-              </div>
-            </li>
-            <li ngbNavItem>
-              <a ngbNavLink href="#">Integracje</a>
-            </li>
-            <li ngbNavItem>
-              <a ngbNavLink href="#">Wsparcie</a>
+            <li ngbNavItem *ngFor="let link of navigationLinks">
+              <a ngbNavLink [routerLink]="[link.url, link.param]">{{ link.name }}</a>
             </li>
           </ul>
         </div>

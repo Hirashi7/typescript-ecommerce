@@ -8,19 +8,27 @@ export interface ICategory extends mongoose.Document {
 }
 
 const categorySchema: mongoose.Schema = new mongoose.Schema({
-    _id: mongoose.Types.ObjectId,
+    _id: {
+        type: mongoose.Types.ObjectId,
+        required: true,
+        auto: true
+    },
     title: {
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: true
+    },
+    parent: {
+        type: mongoose.Schema.Types.ObjectId,
+        default: null
+    },
     products: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Product',
-            autopopulate: {
-                select: '-__v',
-                maxDepth: 1
-            }
+            ref: 'Product'
         }
     ]
 });
