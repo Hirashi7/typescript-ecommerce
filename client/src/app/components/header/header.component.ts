@@ -3,6 +3,7 @@ import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CategoryService } from 'src/app/services/category.service';
 import NavigationLink from 'src/app/models/navigationLink.model';
 import Category from 'src/app/models/category.model';
+import AppState from 'src/app/app.state';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -39,6 +40,11 @@ export class HeaderComponent implements OnInit {
         );
       });
     })
+  }
+
+  get cartProducts() {
+    let appState = AppState.getInstance() as AppState;
+    return appState.cart.products.length;
   }
 
 }

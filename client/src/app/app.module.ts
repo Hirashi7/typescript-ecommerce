@@ -13,6 +13,11 @@ import { CategoryComponent } from './components/category/category.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CategoryHeaderComponent } from './components/category/category-header/category-header.component';
+import { HomeComponent } from './components/home/home.component';
+
+import { CountdownModule } from 'ngx-countdown';
+
+import AppState from './app.state';
 
 @NgModule({
   declarations: [
@@ -21,14 +26,17 @@ import { CategoryHeaderComponent } from './components/category/category-header/c
     HeaderComponent,
     CategoryComponent,
     TopBarComponent,
-    CategoryHeaderComponent
+    CategoryHeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CountdownModule,
+    AppState
   ],
   providers: [],
   bootstrap: [AppComponent]
