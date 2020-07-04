@@ -18,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CountdownModule } from 'ngx-countdown';
 
 import AppState from './app.state';
+import { SingleProductComponent } from './components/products/single-product/single-product.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import AppState from './app.state';
     CategoryComponent,
     TopBarComponent,
     CategoryHeaderComponent,
-    HomeComponent
+    HomeComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,

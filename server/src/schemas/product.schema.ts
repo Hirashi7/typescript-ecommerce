@@ -8,10 +8,15 @@ export interface IProduct extends mongoose.Document {
 }
 
 const productSchema: mongoose.Schema = new mongoose.Schema({
-    _id: mongoose.Types.ObjectId,
+    _id: {
+        type: mongoose.Types.ObjectId,
+        required: true,
+        auto: true
+    },
     title: {
         type: String,
         required: true,
+        
     },
     description: {
         type: String,
@@ -21,6 +26,14 @@ const productSchema: mongoose.Schema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    imagePath: {
+        type: String,
+        required: true,
+    },
+    type: {
+        type: Number,
+        required: true,
+    }
 });
 
 export default mongoose.model<IProduct>('Product', productSchema);

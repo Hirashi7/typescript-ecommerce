@@ -13,4 +13,23 @@ export default class ProductController {
             })
         })
     }
+
+    public create = (req: express.Request, res: express.Response) => {
+        let newProduct = new Product({
+            ...req.body
+        });
+    
+        newProduct.save()
+        .then((result) => {
+            return res.status(200).json({
+                message: 'Success',
+                result
+            })
+        })
+        .catch((err) => {
+            return res.status(500).json({
+                error: err
+            });
+        })
+    }
 }

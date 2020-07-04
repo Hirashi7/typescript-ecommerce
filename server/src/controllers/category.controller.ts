@@ -51,6 +51,7 @@ export default class CategoryController {
         }
 
         Category.findById(req.params.id)
+        .populate('products')
         .exec()
         .then((result) => {
             return res.status(200).json(result.products);

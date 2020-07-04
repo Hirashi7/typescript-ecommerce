@@ -15,25 +15,31 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  public getProductsByCategoryId(id: string): Observable<[{}]> {
-    return this.http.get<[{}]>('http://localhost:3000/api/category/' + id)
-      .pipe(
-        catchError(this.handleError<[{}]>('getProductsByCategoryId', [{}]))
-      );
+  public getProductsByCategoryId(id: string): Promise<[]> {
+    const products = this.http.get<[{}]>('http://localhost:4576/api/category/' + id + '/products');
+
+    return new Promise((resolve) => {
+      return products.subscribe((r: any) => {
+        resolve(r);
+      })
+    })
   }
 
   public getAll(): Observable<[Category] | [{}]> {
-    return this.http.get<[Category]>('http://localhost:3000/api/category/')
+    return this.http.get<[Category]>('http://localhost:4576/api/category/')
       .pipe(
         catchError(this.handleError<[{}]>('getAll', [{}]))
       );
   }
 
-  public getById(id: string): Observable<Category | {}> {
-    return this.http.get<Category>('http://localhost:3000/api/category/' + id)
-      .pipe(
-        catchError(this.handleError<{}>('getById', {}))
-      );
+  public getById(id: string): Promise<{}> {
+    const category = this.http.get<Category>('http://localhost:4576/api/category/' + id);
+
+    return new Promise((resolve) => {
+      category.subscribe((r) => {
+        resolve(r)
+      })
+    });
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
