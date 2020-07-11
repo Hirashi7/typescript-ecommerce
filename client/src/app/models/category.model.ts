@@ -1,7 +1,7 @@
 import CategoryAdapter from '../adapters/category.adapter';
 import CategoryApi from './category.api.model';
 import Product from './product.model';
-import CategoryFactory from '../factories/category.creator';
+import CategoryFactory from '../factories/category/category.creator';
 
 export default class Category implements CategoryAdapter {
     constructor(

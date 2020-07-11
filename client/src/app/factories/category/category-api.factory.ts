@@ -1,15 +1,15 @@
 import CategoryCreator from "./category.creator";
 import { CategoryFactoryTypes } from './category.factory.types';
-import Category from '../models/category.model';
+import CategoryApi from '../../models/category.api.model';
 
-export class CategoryFactory extends CategoryCreator {
-    public create(source: CategoryFactoryTypes, obj: any): Category {
+export class CategoryApiFactory extends CategoryCreator {
+    public create(source: CategoryFactoryTypes, obj: any): CategoryApi {
         switch (source) {
             case CategoryFactoryTypes.Raw:
-                return Category.getFromRaw(obj);
+                return CategoryApi.getFromRaw(obj);
             
             case CategoryFactoryTypes.Object:
-                return Category.getFromObject(obj);
+                return CategoryApi.getFromObject(obj);
         
             default:
                 throw new Error("Invalid category creator type");

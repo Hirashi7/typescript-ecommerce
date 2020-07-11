@@ -4,9 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import Category from '../models/category.model';
 import CategoryApi from '../models/category.api.model';
-import { CategoryFactory } from '../factories/category.factory';
-import { CategoryApiFactory } from '../factories/category-api.factory';
-import { CategoryFactoryTypes } from '../factories/category.factory.types';
+import { CategoryFactory } from '../factories/category/category.factory';
+import { CategoryApiFactory } from '../factories/category/category-api.factory';
+import { CategoryFactoryTypes } from '../factories/category/category.factory.types';
 
 @Injectable({
   providedIn: 'root'
