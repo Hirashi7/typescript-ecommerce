@@ -4,6 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import Category from '../models/category.model';
 import CategoryApi from '../models/category.api.model';
+import { CategoryFactory } from '../factories/category.factory';
+import { CategoryApiFactory } from '../factories/category-api.factory';
+import { CategoryFactoryTypes } from '../factories/category.factory.types';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,7 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   public getProductsByCategoryId(id: string): Promise<[]> {
-    const products = this.http.get<[{}]>('http://localhost:4576/api/category/' + id + '/products');
+    const products = this.http.get<[{}]>('http://localhost:4577/api/category/' + id + '/products');
 
     return new Promise((resolve) => {
       return products.subscribe((r: any) => {
@@ -27,31 +30,25 @@ export class CategoryService {
   }
 
   public getAll(): Promise<Array<Category>> {
-    const categories = this.http.get<Array<CategoryApi>>('http://localhost:4576/api/category/');
+    const categoryFactory = new CategoryFactory();
+    const categories = this.http.get<Array<CategoryApi>>('http://localhost:4577/api/category/');
 
     return new Promise((resolve) => {
       return categories.subscribe((r) => {
-
         let parsed = [] as Array<Category>;
 
         r.forEach((el: CategoryApi) => {
           parsed.push(
-            new CategoryApi(
-              el._id,
-              el.products,
-              el.title,
-              el.description
-            ).getClientModel()
+            categoryFactory.create(CategoryFactoryTypes.Raw, el)
           );
         });
-
         resolve(parsed);
       })
     })
   }
 
   public getById(id: string): Promise<{}> {
-    const category = this.http.get<Category>('http://localhost:4576/api/category/' + id);
+    const category = this.http.get<Category>('http://localhost:4577/api/category/' + id);
 
     return new Promise((resolve) => {
       category.subscribe((r) => {

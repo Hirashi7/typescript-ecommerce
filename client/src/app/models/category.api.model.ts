@@ -22,4 +22,17 @@ export default class CategoryApi implements CategoryAdapter {
             this.description
         );
     }
+
+    public static getFromRaw(obj: any) {
+        return new this(
+            obj._id,
+            obj.products,
+            obj.title,
+            obj.description
+        );
+    }
+
+    public static getFromObject(obj: Category) {
+        return obj.getApiModel();
+    }
 }

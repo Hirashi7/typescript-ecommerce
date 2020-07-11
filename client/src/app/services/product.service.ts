@@ -15,7 +15,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<[{}]> {
-    return this.http.get<[{}]>('http://localhost:4576/api/products')
+    return this.http.get<[{}]>('http://localhost:4577/api/products')
       .pipe(
         catchError(this.handleError<[{}]>('getProducts', [{}]))
       );
