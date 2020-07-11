@@ -26,8 +26,7 @@ export class HeaderComponent implements OnInit {
 
   getNavigationLinks() {
     this.categoryService.getAll()
-    .subscribe(r => {
-      
+    .then(r => {
       if(r.length < 1) return;
 
       r.forEach((el: Category) => {
@@ -35,7 +34,7 @@ export class HeaderComponent implements OnInit {
           {
             name: el.title,
             url: '/category',
-            param: el._id
+            param: el.id
           }
         );
       });

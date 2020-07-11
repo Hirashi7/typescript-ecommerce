@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import Category from '../models/category.model';
+import CategoryApi from '../models/category.api.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +26,28 @@ export class CategoryService {
     })
   }
 
-  public getAll(): Observable<[Category] | [{}]> {
-    return this.http.get<[Category]>('http://localhost:4576/api/category/')
-      .pipe(
-        catchError(this.handleError<[{}]>('getAll', [{}]))
-      );
+  public getAll(): Promise<Array<Category>> {
+    const categories = this.http.get<Array<CategoryApi>>('http://localhost:4576/api/category/');
+
+    return new Promise((resolve) => {
+      return categories.subscribe((r) => {
+
+        let parsed = [] as Array<Category>;
+
+        r.forEach((el: CategoryApi) => {
+          parsed.push(
+            new CategoryApi(
+              el._id,
+              el.products,
+              el.title,
+              el.description
+            ).getClientModel()
+          );
+        });
+
+        resolve(parsed);
+      })
+    })
   }
 
   public getById(id: string): Promise<{}> {

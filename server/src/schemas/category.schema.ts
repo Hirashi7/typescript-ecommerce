@@ -21,10 +21,6 @@ const categorySchema: mongoose.Schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    parent: {
-        type: mongoose.Schema.Types.ObjectId,
-        default: null
-    },
     products: [
         {
             type: mongoose.Schema.Types.ObjectId,

@@ -1,9 +1,8 @@
-import ProductAdapter from '../adapters/product.adapter';
-import ProductApi from './product.api.model';
+import Product from './product.model';
 
-export default class Product implements ProductAdapter{
+export default class ProductApi {
     constructor(
-        public id: string,
+        public _id: string,
         public description: string,
         public title: string,
         public price: Number,
@@ -12,12 +11,8 @@ export default class Product implements ProductAdapter{
     ) {}
 
     getClientModel(): Product {
-        return this;
-    }
-
-    getApiModel() {
-        return new ProductApi(
-            this.id,
+        return new Product(
+            this._id,
             this.description,
             this.title,
             this.price,
@@ -25,4 +20,10 @@ export default class Product implements ProductAdapter{
             this.type
         );
     }
+
+    getApiModel() {
+        return this;
+    }
+
+
 }
