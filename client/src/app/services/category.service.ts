@@ -6,6 +6,9 @@ import Category from '../models/category.model';
 import CategoryApi from '../models/category.api.model';
 import { CategoryFactory } from '../factories/category/category.factory';
 import { DataFactoryTypes } from '../classes/data.factory.types';
+import Product from '../models/product.model';
+import { ProductFactory } from '../factories/product/product.factory';
+import ProductApi from '../models/product.api.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +21,20 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  public getProductsByCategoryId(id: string): Promise<[]> {
-    const products = this.http.get<[{}]>('http://localhost:4577/api/category/' + id + '/products');
+  public getProductsByCategoryId(id: string): Promise<Array<Product>> {
+    const productFactory = new ProductFactory();
+    const products = this.http.get<Array<ProductApi>>('http://localhost:4577/api/category/' + id + '/products');
 
     return new Promise((resolve) => {
       return products.subscribe((r: any) => {
-        resolve(r);
+        let parsed: Array<Product> = [];
+
+        r.forEach((el: ProductApi) => {
+          parsed.push(
+            productFactory.create(DataFactoryTypes.Raw, el)
+          );
+        });
+        resolve(parsed);
       })
     })
   }

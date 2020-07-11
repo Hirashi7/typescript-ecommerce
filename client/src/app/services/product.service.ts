@@ -18,13 +18,6 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  // public getAll(): Observable<[{}]> {
-  //   return this.http.get<[{}]>('http://localhost:4577/api/products')
-  //     .pipe(
-  //       catchError(this.handleError<[{}]>('getProducts', [{}]))
-  //     );
-  // }
-
   public getAll(): Promise<Array<Product>> {
     const categoryFactory = new ProductFactory();
     const categories = this.http.get<Array<ProductApi>>('http://localhost:4577/api/category/');

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import Category from 'src/app/models/category.model';
+import Product from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-category',
@@ -11,7 +12,7 @@ import Category from 'src/app/models/category.model';
 export class CategoryComponent implements OnInit {
   public id: string;
   public category = {} as Category;
-  public products: [];
+  public products: Array<Product>;
 
   constructor(
     private activatedRoute: ActivatedRoute,

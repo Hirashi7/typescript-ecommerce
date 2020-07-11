@@ -1,5 +1,5 @@
 <div class="card" id="product-{{product._id}}">
-    <a class="card-body text-center" [routerLink]="['/product', product._id]">
+    <a class="card-body text-center" [routerLink]="['/product', product.id]">
       <img src="{{product.imagePath}}" class="img-fluid" alt="" height="250">
       <h4><strong>{{product.title}}</strong></h4>
       <h5>{{product.price | number:'1.2-2'}} zł</h5>
