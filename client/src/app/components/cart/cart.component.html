@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row no-gutters justify-content-between align-items-center mb-3">
+        <h1>Koszyk</h1>
+        <span>Masz pytania? Dzwoń! <b>+48&nbsp;574-44-123</b></span>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p class="alert alert-warning" *ngIf="!cartEmpty">
+                Nie posiadasz produktów w koszyku
+            </p>
+            <table class="table table-stripped" *ngIf="cartEmpty">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nazwa</th>
+                        <th>Ilość</th>
+                        <th>Cena j.</th>
+                        <th>Razem</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let line of cartLines; let i = index;">
+                        <td><img [src]="line.product.imagePath" width="150" height="150" alt=""></td>
+                        <td>{{line.product.title}}</td>
+                        <td>{{line.quantity | number}}</td>
+                        <td>{{line.product.price | number:'1.2-2'}} zł</td>
+                        <td>{{line.product.price * line.quantity | number:'1.2-2'}} zł</td>
+                        <td><button class="btn btn-outline-danger btn-sm" (click)="remove(i)">&times;</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" *ngIf="cartEmpty">
+        <div class="col-12 text-right">
+            <hr>
+            <button class="btn btn-success btn-lg">Przejdź do zamówienia &raquo;</button>
+        </div>
+        <img src="/assets/img/Pasek_banki_karty.png" alt="" class="img-fluid">
+    </div>
+</div>

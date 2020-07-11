@@ -5,9 +5,9 @@ export default class ProductApi {
         public _id: string,
         public description: string,
         public title: string,
-        public price: Number,
+        public price: number,
         public imagePath: string,
-        public type: Number
+        public type: number
     ) {}
 
     getClientModel(): Product {

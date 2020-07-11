@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
   get cartProducts() {
     let appState = AppState.getInstance() as AppState;
-    return appState.cart.products.length;
+    return appState.cart.count;
   }
 
 }

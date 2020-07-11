@@ -39,10 +39,7 @@ export class ProductComponent implements OnInit {
   addToCart() {
     let appState = AppState.getInstance() as AppState;
 
-    appState.cart.products.push({
-      product: this.product,
-      quantity: this.quantity
-    });
+    appState.addToCart(this.product, this.quantity);
 
     this.router.navigate(['/cart']);
     

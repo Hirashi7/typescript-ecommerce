@@ -21,6 +21,7 @@ import AppState from './app.state';
 import { SingleProductComponent } from './components/products/single-product/single-product.component';
 import { ProductComponent } from './components/products/product/product.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CategoryHeaderComponent,
     HomeComponent,
     SingleProductComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
