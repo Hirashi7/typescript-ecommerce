@@ -12,3 +12,16 @@ body {
     font-family: 'Muli', sans-serif;
     font-weight: 400;
 }
+
+
+.btn {
+    border-radius: 0;
+}
+.btn-success {
+    background: $success;
+    border-color: $success;
+    &:hover, &:focus, &:focus:active {
+        background: darken($success, 5%);
+        border-color: darken($success, 5%);
+    }
+}

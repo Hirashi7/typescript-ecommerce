@@ -19,6 +19,8 @@ import { CountdownModule } from 'ngx-countdown';
 
 import AppState from './app.state';
 import { SingleProductComponent } from './components/products/single-product/single-product.component';
+import { ProductComponent } from './components/products/product/product.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,15 @@ import { SingleProductComponent } from './components/products/single-product/sin
     TopBarComponent,
     CategoryHeaderComponent,
     HomeComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
     CountdownModule,

@@ -6,7 +6,7 @@ import Product from '../models/product.model';
 import { ProductFactory } from '../factories/product/product.factory';
 import ProductApi from '../models/product.api.model';
 import { DataFactoryTypes } from '../classes/data.factory.types';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +32,16 @@ export class ProductService {
           );
         });
         resolve(parsed);
+      })
+    })
+  }
+
+  public getById(id: string): Promise<{}> {
+    const request = this.http.get<{}>(`${environment.apiUrl}/api/product/${id}`);
+
+    return new Promise((resolve) => {
+      return request.subscribe((r: any) => {
+        resolve(r);
       })
     })
   }

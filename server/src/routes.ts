@@ -16,4 +16,6 @@ router.get('/category', categoryCtrl.getAll);
 router.post('/category', categoryCtrl.create);
 router.patch('/category/:id', categoryCtrl.updateById);
 
+router.get('/product/:id', productCtrl.getById);
+
 export default router;

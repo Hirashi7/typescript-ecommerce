@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img [src]="product.imagePath" alt="" class="img-fluid">
+        </div>
+        <div class="col-6 align-items-center">
+            <h1>{{product.title}}</h1>
+            <p class="description">
+                {{product.description}}
+            </p>
+            <h5>Cena: {{product.price | number:'1.2-2'}} zł <small><b>brutto</b></small></h5>
+            <div class="form form-inline">
+                <div class="form-group d-flex justify-content-between">
+                    <input type="number" name="" id="" min="0" max="99" class="form-control" [(ngModel)]="quantity">
+                    <button class="btn btn-success text-uppercase" role="button" (click)="addToCart()">Dodaj do koszyka</button>
+                </div>
+            </div>
+            <hr>
+            <h5 class="mb-3 text-muted"><strong>Co zyskujesz?</strong></h5>
+            <ul class="list-group text-muted">
+                <li class="list-group-item">
+                    Darmowa dostawa <b>od 200zł</b>
+                </li>
+                <li class="list-group-item">
+                    Gwarancja zwrotu do <b>30 dni roboczych</b>
+                </li>
+                <li class="list-group-item">
+                   Wsparcie techniczne <strong>24/7</strong>
+                </li>
+            </ul>
+            <hr>
+            <h5 class="mb-3 text-muted"><strong>Formy płatności</strong></h5>
+            <img src="/assets/img/Pasek_banki_karty.png" alt="" class="img-fluid">
+        </div>
+    </div>
+</div>
