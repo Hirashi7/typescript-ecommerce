@@ -7,4 +7,5 @@ export default interface CategoryAdapter {
     getApiModel(): CategoryApi;
 
     getClientModel(): Category;
+
 }
