@@ -20,6 +20,10 @@ export class CartComponent implements OnInit {
     return this.appState.cart.count;
   }
 
+  get total() {
+    return this.appState.cart.total;
+  }
+
   ngOnInit(): void {
     this.cartLines = this.appState.cart.cartLines;
   }

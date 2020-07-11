@@ -22,11 +22,29 @@
                 <tbody>
                     <tr *ngFor="let line of cartLines; let i = index;">
                         <td><img [src]="line.product.imagePath" width="150" height="150" alt=""></td>
-                        <td>{{line.product.title}}</td>
+                        <td><strong>{{line.product.title}}</strong></td>
                         <td>{{line.quantity | number}}</td>
                         <td>{{line.product.price | number:'1.2-2'}} zł</td>
                         <td>{{line.product.price * line.quantity | number:'1.2-2'}} zł</td>
                         <td><button class="btn btn-outline-danger btn-sm" (click)="remove(i)">&times;</button></td>
+                    </tr>
+                    <tr class="summary text-right">
+                        <th colspan="5">
+                            Podatek VAT 23%:
+                        </th>
+                        <td colspan="2">{{total * 0.23 | number:'1.2-2'}} zł</td>
+                    </tr>
+                    <tr class="summary text-right">
+                        <th colspan="5">
+                            W sumie (netto):
+                        </th>
+                        <td colspan="2">{{total / 1.23 | number:'1.2-2'}} zł</td>
+                    </tr>
+                    <tr class="summary text-right">
+                        <th colspan="5">
+                            W sumie (brutto):
+                        </th>
+                        <td colspan="2" class="text-success h4"><strong>{{total | number:'1.2-2'}} zł</strong></td>
                     </tr>
                 </tbody>
             </table>
@@ -34,8 +52,7 @@
     </div>
     <div class="row" *ngIf="cartEmpty">
         <div class="col-12 text-right">
-            <hr>
-            <button class="btn btn-success btn-lg">Przejdź do zamówienia &raquo;</button>
+            <a [routerLink]="['order/step1']" class="btn btn-success btn-lg">Przejdź do zamówienia &raquo;</a>
         </div>
         <img src="/assets/img/Pasek_banki_karty.png" alt="" class="img-fluid">
     </div>
