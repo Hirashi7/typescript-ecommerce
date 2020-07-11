@@ -5,8 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import Category from '../models/category.model';
 import CategoryApi from '../models/category.api.model';
 import { CategoryFactory } from '../factories/category/category.factory';
-import { CategoryApiFactory } from '../factories/category/category-api.factory';
-import { CategoryFactoryTypes } from '../factories/category/category.factory.types';
+import { DataFactoryTypes } from '../classes/data.factory.types';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +38,7 @@ export class CategoryService {
 
         r.forEach((el: CategoryApi) => {
           parsed.push(
-            categoryFactory.create(CategoryFactoryTypes.Raw, el)
+            categoryFactory.create(DataFactoryTypes.Raw, el)
           );
         });
         resolve(parsed);

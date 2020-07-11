@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import Product from '../models/product.model';
+import { ProductFactory } from '../factories/product/product.factory';
+import ProductApi from '../models/product.api.model';
+import { DataFactoryTypes } from '../classes/data.factory.types';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +18,29 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  public getAll(): Observable<[{}]> {
-    return this.http.get<[{}]>('http://localhost:4577/api/products')
-      .pipe(
-        catchError(this.handleError<[{}]>('getProducts', [{}]))
-      );
+  // public getAll(): Observable<[{}]> {
+  //   return this.http.get<[{}]>('http://localhost:4577/api/products')
+  //     .pipe(
+  //       catchError(this.handleError<[{}]>('getProducts', [{}]))
+  //     );
+  // }
+
+  public getAll(): Promise<Array<Product>> {
+    const categoryFactory = new ProductFactory();
+    const categories = this.http.get<Array<ProductApi>>('http://localhost:4577/api/category/');
+
+    return new Promise((resolve) => {
+      return categories.subscribe((r) => {
+        let parsed = [] as Array<Product>;
+
+        r.forEach((el: ProductApi) => {
+          parsed.push(
+            categoryFactory.create(DataFactoryTypes.Raw, el)
+          );
+        });
+        resolve(parsed);
+      })
+    })
   }
 
 private handleError<T>(operation = 'operation', result?: T) {

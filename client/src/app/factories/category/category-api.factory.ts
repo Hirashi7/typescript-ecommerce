@@ -1,14 +1,14 @@
 import CategoryCreator from "./category.creator";
-import { CategoryFactoryTypes } from './category.factory.types';
 import CategoryApi from '../../models/category.api.model';
+import { DataFactoryTypes } from 'src/app/classes/data.factory.types';
 
 export class CategoryApiFactory extends CategoryCreator {
-    public create(source: CategoryFactoryTypes, obj: any): CategoryApi {
+    public create(source: DataFactoryTypes, obj: any): CategoryApi {
         switch (source) {
-            case CategoryFactoryTypes.Raw:
+            case DataFactoryTypes.Raw:
                 return CategoryApi.getFromRaw(obj);
             
-            case CategoryFactoryTypes.Object:
+            case DataFactoryTypes.Object:
                 return CategoryApi.getFromObject(obj);
         
             default:

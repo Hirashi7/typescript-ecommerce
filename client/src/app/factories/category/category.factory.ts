@@ -1,14 +1,14 @@
 import CategoryCreator from "./category.creator";
-import { CategoryFactoryTypes } from './category.factory.types';
 import Category from '../../models/category.model';
+import { DataFactoryTypes } from 'src/app/classes/data.factory.types';
 
 export class CategoryFactory extends CategoryCreator {
-    public create(source: CategoryFactoryTypes, obj: any): Category {
+    public create(source: DataFactoryTypes, obj: any): Category {
         switch (source) {
-            case CategoryFactoryTypes.Raw:
+            case DataFactoryTypes.Raw:
                 return Category.getFromRaw(obj);
             
-            case CategoryFactoryTypes.Object:
+            case DataFactoryTypes.Object:
                 return Category.getFromObject(obj);
         
             default:

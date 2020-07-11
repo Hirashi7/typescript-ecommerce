@@ -25,4 +25,19 @@ export default class Product implements ProductAdapter{
             this.type
         );
     }
+
+    public static getFromRaw(obj: any) {
+        return new this(
+            obj._id,
+            obj.description,
+            obj.title,
+            obj.price,
+            obj.imagePath,
+            obj.type
+        );
+    }
+
+    public static getFromObject(obj: Product) {
+        return obj.getClientModel();
+    }
 }
