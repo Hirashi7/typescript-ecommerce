@@ -9,6 +9,7 @@ import { DataFactoryTypes } from '../classes/data.factory.types';
 import Product from '../models/product.model';
 import { ProductFactory } from '../factories/product/product.factory';
 import ProductApi from '../models/product.api.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class CategoryService {
 
   public getProductsByCategoryId(id: string): Promise<Array<Product>> {
     const productFactory = new ProductFactory();
-    const products = this.http.get<Array<ProductApi>>('http://localhost:4577/api/category/' + id + '/products');
+    const products = this.http.get<Array<ProductApi>>(`${environment.apiUrl}/api/category/` + id + '/products');
 
     return new Promise((resolve) => {
       return products.subscribe((r: any) => {
@@ -41,7 +42,7 @@ export class CategoryService {
 
   public getAll(): Promise<Array<Category>> {
     const categoryFactory = new CategoryFactory();
-    const categories = this.http.get<Array<CategoryApi>>('http://localhost:4577/api/category/');
+    const categories = this.http.get<Array<CategoryApi>>(`${environment.apiUrl}/api/category/`);
 
     return new Promise((resolve) => {
       return categories.subscribe((r) => {
@@ -58,7 +59,7 @@ export class CategoryService {
   }
 
   public getById(id: string): Promise<{}> {
-    const category = this.http.get<Category>('http://localhost:4577/api/category/' + id);
+    const category = this.http.get<Category>(`${environment.apiUrl}/api/category/` + id);
 
     return new Promise((resolve) => {
       category.subscribe((r) => {

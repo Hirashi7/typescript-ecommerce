@@ -8,7 +8,7 @@ import CartLine from './classes/cart-line.class';
 @NgModule()
 export default class AppState extends Singleton {
     user: User;
-    public cart: Cart;
+    cart: Cart;
 
     constructor() {
         super();
@@ -31,6 +31,13 @@ export default class AppState extends Singleton {
 
     load() {
         let cache: any = localStorage.getItem('cart');
+
+        if(!cache) {
+            this.user = null;
+            this.cart = new Cart(this.user, []);
+            this.save();
+            return;
+        }
         cache = JSON.parse(cache);
 
         if(cache.user) {
