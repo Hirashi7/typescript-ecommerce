@@ -24,12 +24,18 @@
                 <span class="nav-name">Koszyk</span>
               </a>
             </li>
-            <!-- <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item" *ngIf="!isLoggedIn">
+              <a [routerLink]="['/login']" class="nav-link">
                 <fa-icon [icon]="icons.faUser"></fa-icon>
                 <span class="nav-name">Logowanie</span>
               </a>
-            </li> -->
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn">
+              <a href="#" (click)="logout()" class="nav-link">
+                <fa-icon [icon]="icons.faUser"></fa-icon>
+                <span class="nav-name">Wyloguj</span>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>

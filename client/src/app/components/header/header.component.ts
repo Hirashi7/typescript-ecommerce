@@ -4,6 +4,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import NavigationLink from 'src/app/models/navigationLink.model';
 import Category from 'src/app/models/category.model';
 import AppState from 'src/app/app.state';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,9 +16,14 @@ export class HeaderComponent implements OnInit {
     faUser
   };
   navigationLinks = [{}];
+
+  get isLoggedIn() {
+    return this.authService.isLoggedIn;
+  }
   
   constructor(
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +51,10 @@ export class HeaderComponent implements OnInit {
     let appState = AppState.getInstance() as AppState;
     if(!appState.cart) return 0;
     return appState.cart.count;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

@@ -26,31 +26,31 @@ export default class AppState extends Singleton {
     }
 
     save() {
-        localStorage.setItem('cart', JSON.stringify(this)); 
+        localStorage.setItem('appState', JSON.stringify(this)); 
     }
 
     load() {
-        let cache: any = localStorage.getItem('cart');
+        let cache: any = localStorage.getItem('appState');
+        let currentUser: any = localStorage.getItem('currentUser');
+
+        if(currentUser) {
+            currentUser = JSON.parse(currentUser);
+            this.user = new User(
+                currentUser.user._id, 
+                currentUser.user.email,
+                currentUser.user.firstName,
+                currentUser.user.lastName,
+            );
+        } else {
+            this.user = null;
+        }
 
         if(!cache) {
-            this.user = null;
             this.cart = new Cart(this.user, []);
             this.save();
             return;
         }
         cache = JSON.parse(cache);
-
-        if(cache.user) {
-            this.user = new User(
-                cache.user.id,
-                cache.user.email,
-                cache.user.firstName,
-                cache.user.lastName
-            )
-        } else {
-            /* MOCK */
-            this.user = new User('667', 'jan@kowalski.pl', 'Jan', 'Kowalski');
-        }
 
         if(cache.cart && cache.cart.cartLines) {
             let cartLines = [] as Array<CartLine>;
