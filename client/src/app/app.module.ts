@@ -23,6 +23,8 @@ import { ProductComponent } from './components/products/product/product.componen
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddressComponent } from './components/order/address/address.component';
+import { OrderDetailsComponent } from './components/order/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { LoginComponent } from './components/login/login.component';
     SingleProductComponent,
     ProductComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    AddressComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,

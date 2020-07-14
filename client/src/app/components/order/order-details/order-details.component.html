@@ -1,0 +1,11 @@
+<div class="order-details">
+    <p>
+        <a [routerLink]="['/cart']" class="text-danger">&laquo; Edytuj koszyk</a>
+    </p>
+    <p *ngFor="let line of cartLines">
+        {{line.product.title}} &times; <strong>{{line.quantity}}</strong> | {{line.product.price * line.quantity | number:'1.2-2'}} zł
+    </p>
+    <hr>
+    <p>Podatek: <strong>{{total * 0.23 | number:'1.2-2'}} zł</strong></p>
+    <p class="h4">W sumie: <strong class="text-success">{{total | number:'1.2-2'}} zł</strong></p>
+</div>

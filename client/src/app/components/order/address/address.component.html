@@ -1,0 +1,53 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <h2><strong>Krok 1</strong> - Uzupełnij dane adresowe</h2>
+            <hr>
+        </div>
+    </div>
+    <form ngNativeValidation class="form row" (submit)="onSubmit()">
+        <div class="col-4">
+            <p class="lead">Dane personalne</p>
+            
+                <div class="form-group">
+                    <label for="">Imię</label>
+                    <input type="text" name="inputFirstName" class="form-control" placeholder="Jan">
+                </div>
+                <div class="form-group">
+                    <label for="">Nazwisko</label>
+                    <input type="text" name="inputLastName" class="form-control" placeholder="Kowalski">
+                </div>
+                <div class="form-group">
+                    <label for="">E-mail</label>
+                    <input type="email" name="inputEmail" class="form-control" placeholder="jan@kowalski.pl">
+                </div>
+                <div class="form-group">
+                    <label for="">Telefon</label>
+                    <input type="tel" name="inputPhone" class="form-control" placeholder="775-434-123">
+                </div>
+        </div>
+        <div class="col-4">
+            <p class="lead">Dane do wysyłki</p>
+            <div class="form-group">
+                <label for="">Adres</label>
+                <input type="text" name="inputAddress1" class="form-control" placeholder="ul. Przykładowa 14/33">
+            </div>
+            <div class="form-group">
+                <label for="">Adres c.d</label>
+                <input type="text" name="inputAddress2" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="">Miasto</label>
+                <input type="text" name="inputCity" class="form-control" placeholder="Warszawa">
+            </div>
+            <div class="form-group">
+                <label for="">Kod pocztowy</label>
+                <input type="text" name="inputZipCode" class="form-control" placeholder="00-220">
+            </div>
+        </div>
+        <div class="col-4">
+            <app-order-details></app-order-details>
+            <button class="btn btn-lg btn-success btn-block mt-3" type="submit">Następny krok</button>
+        </div>
+        </form>
+</div>
