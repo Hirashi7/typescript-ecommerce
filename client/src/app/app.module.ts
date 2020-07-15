@@ -25,6 +25,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddressComponent } from './components/order/address/address.component';
 import { OrderDetailsComponent } from './components/order/order-details/order-details.component';
+import { ShippingComponent } from './components/order/shipping/shipping.component';
+import { PaymentComponent } from './components/order/payment/payment.component';
+import { SummaryComponent } from './components/order/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { OrderDetailsComponent } from './components/order/order-details/order-de
     CartComponent,
     LoginComponent,
     AddressComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    ShippingComponent,
+    PaymentComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

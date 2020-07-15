@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <h2><strong>Krok 3</strong> - Wybierz opcję płatności</h2>
+            <hr>
+        </div>
+        <div class="col-8">
+            <ul class="list-group">
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/assets/img/shipping/odbior.jpg" alt="">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="1" name="inputPayment" checked [(ngModel)]="data.payment">
+                        Płatność przy odbiorze
+                      </label>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/assets/img/payment/payu.jpg" alt="">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="2" name="inputPayment" [(ngModel)]="data.payment">
+                        PayU - Bezpiecznie płatności on-line
+                      </label>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/assets/img/payment/card.jpg" alt="">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="3" name="inputPayment" [(ngModel)]="data.payment">
+                        Płatność kartą (Visa, Mastercard)
+                      </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-4">
+            <app-order-details></app-order-details>
+            <button class="btn btn-lg btn-success btn-block mt-3" (click)="onSubmit()">Następny krok</button>
+        </div>
+    </div>
+</div>

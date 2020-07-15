@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <h2><strong>Krok 2</strong> - Wybierz formę dostawy</h2>
+            <hr>
+        </div>
+        <div class="col-8">
+            <ul class="list-group">
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/assets/img/shipping/odbior.jpg" alt="">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="1" name="inputShipping" checked [(ngModel)]="data.shipping">
+                        Odbiór osobisty  <strong>(za darmo)</strong>
+                      </label>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/assets/img/shipping/dhl.jpg" alt="">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="2" name="inputShipping" [(ngModel)]="data.shipping">
+                        Kurier DHL - dostawa w 3-5 dni roboczych <strong>(11.20 zł)</strong>
+                      </label>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/assets/img/shipping/poczta.jpg" alt="">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="3" name="inputShipping" [(ngModel)]="data.shipping">
+                        Poczta Polska - Kurier 48 <strong>(14.90 zł)</strong>
+                      </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-4">
+            <app-order-details></app-order-details>
+            <button class="btn btn-lg btn-success btn-block mt-3" (click)="onSubmit()">Następny krok</button>
+        </div>
+    </div>
+</div>

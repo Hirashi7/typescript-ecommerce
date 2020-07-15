@@ -5,6 +5,7 @@ export class OrderStateManagament {
     public router: Router;
 
     constructor(state: OrderState, router: Router) {
+        this.router = router;
         this.transitionTo(state);
     }
 

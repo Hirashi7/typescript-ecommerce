@@ -11,6 +11,7 @@ export default class OrderStateAddress extends OrderState {
     }
 
     public nextStep(): void {
+        console.log(this.context);
         this.context.router.navigate(['/order/step2']);
     }
 
