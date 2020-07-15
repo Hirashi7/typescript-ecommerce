@@ -3,6 +3,8 @@ import { OrderStateManagament } from 'src/app/classes/order-states';
 import OrderStateAddress from 'src/app/classes/order/order.state.address';
 import { Router } from '@angular/router';
 import OrderStateComponent from 'src/app/classes/order/order.state.component';
+import Address from 'src/app/models/address.model';
+import AppState from 'src/app/app.state';
 
 @Component({
   selector: 'app-address',
@@ -10,19 +12,14 @@ import OrderStateComponent from 'src/app/classes/order/order.state.component';
   styleUrls: ['./address.component.scss']
 })
 export class AddressComponent extends OrderStateComponent implements OnInit  {
-  data = {
-    firstName: 'Grzegorz',
-    lastName: 'Wójcik',
-    email: 'test@test.pl',
-    phone: '',
-    address1: 'ul. Konstytucji 3 Maja 14/7',
-    address2: '',
-    city: 'Rzeszów',
-    zipCode: '39-056'
-  };
+  data = {} as Address;
 
   ngOnInit(): void {
-
+    const appState = AppState.getInstance() as AppState;
+    if(appState.address) {
+      this.data = appState.address;
+    }
+    
   }
 
   constructor(protected router: Router) {

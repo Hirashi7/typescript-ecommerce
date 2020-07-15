@@ -21,7 +21,18 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   get total() {
-    return this.appState.cart.total;
+    return this.appState.cart.total + this.shippingCost;
+  }
+
+  get address() {
+    return this.appState.address;
+  }
+
+  get shippingCost() {
+    if(this.appState.shipping !== undefined) {
+      return this.appState.shipping.price;
+    }
+    return 0;
   }
 
 }

@@ -1,8 +1,13 @@
 import { OrderState } from "../order-states";
+import AppState from 'src/app/app.state';
 
 export default class OrderStateSummary extends OrderState {
     public processStep(data: any): boolean {
-       return true;
+        const appState = AppState.getInstance() as AppState;
+
+        appState.reset();
+
+        return true;
     }
 
     public previousStep(): void {

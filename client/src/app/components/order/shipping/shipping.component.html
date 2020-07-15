@@ -6,30 +6,12 @@
         </div>
         <div class="col-8">
             <ul class="list-group">
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="/assets/img/shipping/odbior.jpg" alt="">
+                <li class="list-group-item d-flex align-items-center" *ngFor="let method of methods">
+                    <img [src]="method.imagePath" alt="">
                     <div class="form-check">
                         <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="1" name="inputShipping" checked [(ngModel)]="data.shipping">
-                        Odbiór osobisty  <strong>(za darmo)</strong>
-                      </label>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="/assets/img/shipping/dhl.jpg" alt="">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="2" name="inputShipping" [(ngModel)]="data.shipping">
-                        Kurier DHL - dostawa w 3-5 dni roboczych <strong>(11.20 zł)</strong>
-                      </label>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="/assets/img/shipping/poczta.jpg" alt="">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="3" name="inputShipping" [(ngModel)]="data.shipping">
-                        Poczta Polska - Kurier 48 <strong>(14.90 zł)</strong>
+                        <input type="radio" class="form-check-input" [value]="method" name="inputShipping" checked [(ngModel)]="data">
+                        {{method.name}} <strong>({{method.price | number:'1.2-2'}} zł)</strong>
                       </label>
                     </div>
                 </li>

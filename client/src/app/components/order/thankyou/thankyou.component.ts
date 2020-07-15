@@ -12,4 +12,8 @@ export class ThankyouComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    window.location.href = "/";
+  }
+
 }

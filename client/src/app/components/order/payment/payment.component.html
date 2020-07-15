@@ -6,30 +6,12 @@
         </div>
         <div class="col-8">
             <ul class="list-group">
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="/assets/img/shipping/odbior.jpg" alt="">
+                <li class="list-group-item d-flex align-items-center" *ngFor="let method of methods">
+                    <img [src]="method.imagePath" alt="">
                     <div class="form-check">
                         <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="1" name="inputPayment" checked [(ngModel)]="data.payment">
-                        Płatność przy odbiorze
-                      </label>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="/assets/img/payment/payu.jpg" alt="">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="2" name="inputPayment" [(ngModel)]="data.payment">
-                        PayU - Bezpiecznie płatności on-line
-                      </label>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="/assets/img/payment/card.jpg" alt="">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="3" name="inputPayment" [(ngModel)]="data.payment">
-                        Płatność kartą (Visa, Mastercard)
+                        <input type="radio" class="form-check-input" [value]="method" name="inputShipping" checked [(ngModel)]="data">
+                        {{method.name}}
                       </label>
                     </div>
                 </li>

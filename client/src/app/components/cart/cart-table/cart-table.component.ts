@@ -20,7 +20,14 @@ export class CartTableComponent implements OnInit {
   }
 
   get total() {
-    return this.appState.cart.total;
+    return this.appState.cart.total + this.shipping;
+  }
+
+  get shipping() {
+    if(this.appState.shipping !== undefined) {
+      return this.appState.shipping.price;
+    }
+    return 0;
   }
 
   ngOnInit(): void {

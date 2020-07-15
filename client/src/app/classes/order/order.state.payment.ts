@@ -1,7 +1,12 @@
 import { OrderState } from "../order-states";
+import AppState from 'src/app/app.state';
 
 export default class OrderStatePayment extends OrderState {
     public processStep(data: any): boolean {
+        const appState = AppState.getInstance() as AppState;
+
+       appState.setPayment(data);
+
        return true;
     }
 

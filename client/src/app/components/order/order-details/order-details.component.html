@@ -2,10 +2,20 @@
     <p>
         <a [routerLink]="['/cart']" class="text-danger">&laquo; Edytuj koszyk</a>
     </p>
+    <hr>
+    <strong>Adres</strong>
+    <div class="text-small text-muted">
+        <span>{{address.firstName}} {{address.lastName}}</span><br>
+        <span>{{address.email}}</span><br>
+        <span>{{address.address1}} {{address.address2}}</span><br>
+        <span>{{address.city}} {{address.zipCode}} </span><br>
+    </div>
+    <hr>
     <p *ngFor="let line of cartLines">
         {{line.product.title}} &times; <strong>{{line.quantity}}</strong> | {{line.product.price * line.quantity | number:'1.2-2'}} zł
     </p>
     <hr>
     <p>Podatek: <strong>{{total * 0.23 | number:'1.2-2'}} zł</strong></p>
+    <p *ngIf="shippingCost">Dostawa: <strong>{{shippingCost | number:'1.2-2'}} zł</strong></p>
     <p class="h4">W sumie: <strong class="text-success">{{total | number:'1.2-2'}} zł</strong></p>
 </div>
