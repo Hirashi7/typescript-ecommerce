@@ -9,6 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AddressComponent } from './components/order/address/address.component';
 import { ShippingComponent } from './components/order/shipping/shipping.component';
 import { PaymentComponent } from './components/order/payment/payment.component';
+import { SummaryComponent } from './components/order/summary/summary.component';
+import { ThankyouComponent } from './components/order/thankyou/thankyou.component';
 
 
 const routes: Routes = [
@@ -47,6 +49,15 @@ const routes: Routes = [
   {
     path: 'order/step3',
     component: PaymentComponent
+  },
+  {
+    path: 'order/step4',
+    component: SummaryComponent
+  }
+  ,
+  {
+    path: 'order/thankyou',
+    component: ThankyouComponent
   }
 ];
 

@@ -28,6 +28,8 @@ import { OrderDetailsComponent } from './components/order/order-details/order-de
 import { ShippingComponent } from './components/order/shipping/shipping.component';
 import { PaymentComponent } from './components/order/payment/payment.component';
 import { SummaryComponent } from './components/order/summary/summary.component';
+import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
+import { ThankyouComponent } from './components/order/thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { SummaryComponent } from './components/order/summary/summary.component';
     OrderDetailsComponent,
     ShippingComponent,
     PaymentComponent,
-    SummaryComponent
+    SummaryComponent,
+    CartTableComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,

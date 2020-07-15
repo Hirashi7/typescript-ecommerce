@@ -1,0 +1,44 @@
+
+ <p class="alert alert-warning" *ngIf="!cartEmpty">
+    Nie posiadasz produktów w koszyku
+</p>
+<table class="table table-stripped" *ngIf="cartEmpty">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            <th>Cena j.</th>
+            <th>Razem</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let line of cartLines; let i = index;">
+            <td><img [src]="line.product.imagePath" width="150" height="150" alt=""></td>
+            <td><strong>{{line.product.title}}</strong></td>
+            <td>{{line.quantity | number}}</td>
+            <td>{{line.product.price | number:'1.2-2'}} zł</td>
+            <td>{{line.product.price * line.quantity | number:'1.2-2'}} zł</td>
+            <td><button class="btn btn-outline-danger btn-sm" (click)="remove(i)">&times;</button></td>
+        </tr>
+        <tr class="summary text-right">
+            <th colspan="5">
+                Podatek VAT 23%:
+            </th>
+            <td colspan="2">{{total * 0.23 | number:'1.2-2'}} zł</td>
+        </tr>
+        <tr class="summary text-right">
+            <th colspan="5">
+                W sumie (netto):
+            </th>
+            <td colspan="2">{{total / 1.23 | number:'1.2-2'}} zł</td>
+        </tr>
+        <tr class="summary text-right">
+            <th colspan="5">
+                W sumie (brutto):
+            </th>
+            <td colspan="2" class="text-success h4"><strong>{{total | number:'1.2-2'}} zł</strong></td>
+        </tr>
+    </tbody>
+</table>
